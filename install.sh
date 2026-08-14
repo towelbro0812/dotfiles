@@ -119,10 +119,15 @@ install_nvim() {
 install_starship() {
   if command -v starship >/dev/null 2>&1; then
     ok "starship already installed, skipping"
-    return
+  else
+    log "Installing starship..."
+    curl -sS https://starship.rs/install.sh | sh -s -- --bin-dir "$LOCAL_BIN" -y
   fi
-  log "Installing starship..."
-  curl -sS https://starship.rs/install.sh | sh -s -- --bin-dir "$LOCAL_BIN" -y
+
+  if ! grep -q 'starship init bash' "$HOME/.bashrc" 2>/dev/null; then
+    echo 'eval "$(starship init bash)"' >>"$HOME/.bashrc"
+    ok "Added starship init to ~/.bashrc"
+  fi
 }
 
 install_herdr() {
