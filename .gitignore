@@ -1,0 +1,23 @@
+# 預設全部忽略,只留下明確開放的路徑
+/*
+
+# 頂層檔案
+!/.gitignore
+!/install.sh
+!/README.md
+
+# .config
+!/.config
+/.config/*
+
+# nvim
+!/.config/nvim
+!/.config/nvim/**
+
+# starship
+!/.config/starship.toml
+
+# herdr
+!/.config/herdr
+/.config/herdr/*
+!/.config/herdr/config.toml
