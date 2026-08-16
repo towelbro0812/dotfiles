@@ -5,11 +5,12 @@ Linux only. `$HOME` is the git repo (whitelist `.gitignore`).
 
 ## Includes
 
-- nvim (LazyVim)
-- starship
-- herdr
-- uv
-- git, curl, build-essential, ripgrep, fd-find (via apt)
+- [nvim](https://github.com/neovim/neovim) ([LazyVim](https://www.lazyvim.org/))
+- [starship](https://starship.rs/)
+- [herdr](https://herdr.dev/)
+- [lazygit](https://github.com/jesseduffield/lazygit)
+- [uv](https://github.com/astral-sh/uv)
+- git, build-essential, ripgrep, fd-find (via apt)
 
 ## Install
 

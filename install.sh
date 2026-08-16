@@ -139,6 +139,33 @@ install_herdr() {
   curl -fsSL https://herdr.dev/install.sh | sh
 }
 
+install_lazygit() {
+  if command -v lazygit >/dev/null 2>&1; then
+    ok "lazygit already installed, skipping"
+    return
+  fi
+
+  local asset
+  case "$ARCH" in
+  x86_64) asset="linux_x86_64" ;;
+  aarch64) asset="linux_arm64" ;;
+  *)
+    err "Unsupported architecture: $ARCH, please install lazygit manually"
+    return 1
+    ;;
+  esac
+
+  log "Installing lazygit..."
+  local version
+  version="$(curl -fsSL https://api.github.com/repos/jesseduffield/lazygit/releases/latest | grep -Po '"tag_name": "v\K[^"]*')"
+
+  local tmp
+  tmp="$(mktemp -d)"
+  curl -fsSL "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${version}_${asset}.tar.gz" | tar -xz -C "$tmp" lazygit
+  install "$tmp/lazygit" "$LOCAL_BIN/lazygit"
+  rm -rf "$tmp"
+}
+
 install_system_deps
 
 log "Installing toolchain"
@@ -146,6 +173,7 @@ install_uv
 install_nvim
 install_starship
 install_herdr
+install_lazygit
 
 deploy_dotfiles
 
