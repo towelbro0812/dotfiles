@@ -38,6 +38,7 @@ install_system_deps() {
   command -v cc >/dev/null 2>&1 || command -v gcc >/dev/null 2>&1 || missing+=(build-essential)
   command -v rg >/dev/null 2>&1 || missing+=(ripgrep)
   command -v fdfind >/dev/null 2>&1 || missing+=(fd-find)
+  command -v wl-copy >/dev/null 2>&1 || missing+=(wl-clipboard)
 
   if [ ${#missing[@]} -eq 0 ]; then
     ok "system dependencies already installed, skipping"
