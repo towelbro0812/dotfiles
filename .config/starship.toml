@@ -26,7 +26,7 @@ palette = 'catppuccin_mocha'
 
 [os]
 disabled = false
-style = "fg:red"
+style = "fg:yellow"
 
 [os.symbols]
 Windows = ""
@@ -52,12 +52,12 @@ RedHatEnterprise = "󱄛"
 
 [username]
 show_always = true
-style_user = "fg:red"
-style_root = "fg:red"
+style_user = "fg:yellow"
+style_root = "fg:yellow"
 format = '[ $user]($style)'
 
 [directory]
-style = "fg:peach"
+style = "fg:teal"
 format = "[ $path]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -72,12 +72,12 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "fg:yellow"
+style = "fg:blue"
 format = '[ $symbol $branch]($style)'
 
 [git_status]
-style = "fg:yellow"
-format = '[ ($all_status$ahead_behind)]($style)'
+style = "fg:peach"
+format = '[( $all_status$ahead_behind)]($style)'
 
 [nodejs]
 symbol = ""
